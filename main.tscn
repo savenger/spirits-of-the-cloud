@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c15xxpcit5la0" path="res://Assets/Sky.png" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://0tplbafpv6mc" path="res://Assets/Grass.png" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ccwp5tc8ru2t0" path="res://Menu/mainmenu.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dy70fnpudmt3b" path="res://Player/cloud.tscn" id="9_cloud"]
 
 [node name="Main" type="Node2D" unique_id=327813465]
 script = ExtResource("1_main")
@@ -21,6 +22,9 @@ script = ExtResource("1_h2yge")
 [node name="World" type="Node2D" parent="." unique_id=1606260563]
 
 [node name="Level" parent="World" unique_id=497179353 instance=ExtResource("1_ig7tw")]
+
+[node name="Cloud" parent="World" unique_id=815008285 instance=ExtResource("9_cloud")]
+position = Vector2(1469, 857)
 
 [node name="Player1" parent="World" unique_id=1579585161 instance=ExtResource("3_h2yge")]
 position = Vector2(1047, -300)

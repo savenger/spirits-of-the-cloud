@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwohnkwth0h31" path="res://Assets/Hill2.png" id="2_qgqey"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_l5ifi"]
-points = PackedVector2Array(415, 4047, 563, 3270, 1237, 3196, 1266, 2745, 1377, 2671, 1377, 1761, 2413, 1716, 2487, 1324, 3213, 1346, 3176, 1487, 3464, 1509, 3597, 4070)
+points = PackedVector2Array(636, 4065, 739, 3368, 1326, 3350, 1355, 2951, 1446, 2885, 1442, 2113, 2331, 2053, 2400, 1708, 2996, 1743, 2996, 1868, 3231, 1859, 3329, 4065)
 
 [node name="Hill" type="StaticBody2D" unique_id=1930882028]
 script = ExtResource("1_qgqey")

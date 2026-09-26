@@ -13,6 +13,9 @@ func _ready() -> void:
 	reset_level()
 	player_1.hide()
 	player_2.hide()
+	
+	player_1.position = $World/Cloud.position + Vector2(-200, -1500)
+	player_2.position = $World/Cloud.position + Vector2(200, -1500)
 
 	player_1.set_physics_process(false)
 	player_2.set_physics_process(false)
@@ -22,7 +25,6 @@ func _ready() -> void:
 
 func start_game():
 	$Mainmenu.visible = false
-	reset_level()
 
 func _on_player_joined(
 	player_id: int,

@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://dq4aku381bquw"]
 
 [ext_resource type="Script" uid="uid://cphk1lt0nfuva" path="res://Level/level.gd" id="1_qmtf6"]
-[ext_resource type="PackedScene" uid="uid://dy70fnpudmt3b" path="res://Player/cloud.tscn" id="2_uawph"]
 [ext_resource type="Script" uid="uid://08dwpym151if" path="res://Level/weather.gd" id="3_weather"]
 
 [node name="Level" type="Node2D" unique_id=497179353]
 script = ExtResource("1_qmtf6")
-
-[node name="Cloud" parent="." unique_id=665632278 instance=ExtResource("2_uawph")]
-position = Vector2(1469, 857)
 
 [node name="Weather" type="Node" parent="." unique_id=1332572201]
 script = ExtResource("3_weather")
