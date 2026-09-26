@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://he53ygsy61je" path="res://Player/input_manager.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dq4aku381bquw" path="res://Level/level.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://druyadssgpdlm" path="res://main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://trdjw1yv6cwm" path="res://HUD/HUD.tscn" id="3_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ctwftfrjo6c2q" path="res://Player/player.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://b6pij2ahwbedv" path="res://Player/camera_2d.gd" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c15xxpcit5la0" path="res://Assets/Sky.png" id="5_lquwl"]
@@ -15,6 +16,8 @@ script = ExtResource("1_main")
 
 [node name="Mainmenu" parent="." unique_id=216117690 instance=ExtResource("8_5vw27")]
 scale = Vector2(5, 5)
+
+[node name="Hud" parent="." unique_id=687065915 instance=ExtResource("3_4c57u")]
 
 [node name="InputManager" type="Node" parent="." unique_id=1403941348]
 script = ExtResource("1_h2yge")

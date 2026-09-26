@@ -57,3 +57,4 @@ lifetime = 1.4
 process_material = SubResource("ParticleProcessMaterial_rain")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=618066730]
+bus = &"Sound"

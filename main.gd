@@ -37,6 +37,7 @@ func _on_player_joined(
 		player_1.can_influence_weather = true
 		player_1.show()
 		player_1.set_physics_process(true)
+		$Hud/lblPlayer1.visible = false
 
 	elif player_id == 2:
 		player_2.spirit_type = 1
@@ -45,3 +46,4 @@ func _on_player_joined(
 		player_2.can_influence_weather = false
 		player_2.show()
 		player_2.set_physics_process(true)
+		$Hud/lblPlayer1.visible = false

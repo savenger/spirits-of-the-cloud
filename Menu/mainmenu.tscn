@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ccwp5tc8ru2t0"]
 
 [ext_resource type="Script" uid="uid://mkravfrlsrwe" path="res://Menu/mainmenu.gd" id="1_ht6lu"]
+[ext_resource type="Texture2D" uid="uid://4ogd1am32iys" path="res://icon.svg" id="2_n03x5"]
 
 [node name="Mainmenu" type="Control" unique_id=216117690]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,21 +18,26 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Sprite2D" type="Sprite2D" parent="MenuContainer" unique_id=1867769366]
+position = Vector2(575.5, 325)
+scale = Vector2(8.9609375, 5.046875)
+texture = ExtResource("2_n03x5")
+
 [node name="btnStart" type="Button" parent="MenuContainer" unique_id=408462333]
 layout_mode = 0
-offset_left = 343.0
+offset_left = 255.0
 offset_top = 497.0
-offset_right = 389.0
+offset_right = 301.0
 offset_bottom = 528.0
 text = "Start"
 
 [node name="btnControls" type="Button" parent="MenuContainer" unique_id=81503380]
 layout_mode = 0
-offset_left = 343.0
+offset_left = 319.0
 offset_top = 497.0
-offset_right = 389.0
+offset_right = 393.0
 offset_bottom = 528.0
-text = "Start"
+text = "Controls"
 
 [node name="btnQuit" type="Button" parent="MenuContainer" unique_id=732912980]
 layout_mode = 0
@@ -40,6 +47,45 @@ offset_right = 457.0
 offset_bottom = 528.0
 text = "Quit"
 
+[node name="lblVolume" type="Label" parent="MenuContainer" unique_id=1976357765]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 497.0
+offset_right = 569.0
+offset_bottom = 520.0
+text = "Volume:"
+
+[node name="sliderVolume" type="HSlider" parent="MenuContainer" unique_id=2055507024]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 500.0
+offset_right = 774.0
+offset_bottom = 521.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="ControlsContainer" type="Control" parent="." unique_id=1419368512]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ControlsContainer" unique_id=1805295842]
+position = Vector2(576, 324)
+scale = Vector2(9, 5.0625)
+texture = ExtResource("2_n03x5")
+
+[node name="btnCloseControls" type="Button" parent="ControlsContainer" unique_id=1640422700]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 497.0
+offset_right = 460.0
+offset_bottom = 528.0
+text = "Close"
+
 [connection signal="pressed" from="MenuContainer/btnStart" to="." method="_on_btn_start_pressed"]
-[connection signal="pressed" from="MenuContainer/btnControls" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="MenuContainer/btnControls" to="." method="_on_btn_controls_pressed"]
 [connection signal="pressed" from="MenuContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="value_changed" from="MenuContainer/sliderVolume" to="." method="_on_slider_volume_value_changed"]
+[connection signal="pressed" from="ControlsContainer/btnCloseControls" to="." method="_on_btn_close_controls_pressed"]
