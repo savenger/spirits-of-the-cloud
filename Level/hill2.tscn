@@ -14,4 +14,6 @@ texture = ExtResource("2_qgqey")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112997560]
+visible = false
 shape = SubResource("ConvexPolygonShape2D_l5ifi")
+disabled = true

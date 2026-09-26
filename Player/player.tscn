@@ -2,6 +2,91 @@
 
 [ext_resource type="Script" uid="uid://bg3xe4nyxmknx" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Texture2D" uid="uid://boqukd6g71c46" path="res://Assets/Water_Spirit.png" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://cdtlwveyq4ixr" path="res://Assets/Wind_Spirit_WalkingCycle_Frame1.png" id="2_vtle1"]
+[ext_resource type="Texture2D" uid="uid://b8snpy83j4cl4" path="res://Assets/Water_Spirit_WalkingCycle_Frame1.png" id="3_5htga"]
+[ext_resource type="Texture2D" uid="uid://cbdpbpoo0v134" path="res://Assets/Wind_Spirit_WalkingCycle_Frame2.png" id="3_od3ui"]
+[ext_resource type="Texture2D" uid="uid://hdkcq6fdnn6j" path="res://Assets/Wind_Spirit_WalkingCycle_Frame3.png" id="4_00tjw"]
+[ext_resource type="Texture2D" uid="uid://buxok7ode2w3s" path="res://Assets/Water_Spirit_WalkingCycle_Frame2.png" id="4_p5o4e"]
+[ext_resource type="Texture2D" uid="uid://dngeruugf3iu0" path="res://Assets/Water_Spirit_WalkingCycle_Frame3.png" id="5_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://bg3k1lsftc34o" path="res://Assets/Wind_Spirit_WalkingCycle_Frame4.png" id="5_x3vf3"]
+[ext_resource type="Texture2D" uid="uid://bkypinv20x3av" path="res://Assets/Wind_Spirit_WalkingCycle_Frame5.png" id="6_apopc"]
+[ext_resource type="Texture2D" uid="uid://geefirm0qu3m" path="res://Assets/Water_Spirit_WalkingCycle_Frame4.png" id="6_dkpta"]
+[ext_resource type="Texture2D" uid="uid://cvith15yl3k0m" path="res://Assets/Water_Spirit_WalkingCycle_Frame5.png" id="7_lfmf2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_enusa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vtle1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5htga")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5htga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p5o4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gu6f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dkpta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lfmf2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjxej"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vtle1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vtle1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_od3ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_00tjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x3vf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_apopc")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig7tw"]
 radius = 119.0
@@ -16,7 +101,18 @@ collision_layer = 5
 collision_mask = 7
 script = ExtResource("1_l8h54")
 
+[node name="AnimatedSprite2DWater" type="AnimatedSprite2D" parent="." unique_id=262226447]
+sprite_frames = SubResource("SpriteFrames_enusa")
+animation = &"idle"
+autoplay = "default"
+
+[node name="AnimatedSprite2DWind" type="AnimatedSprite2D" parent="." unique_id=1298500034]
+visible = false
+sprite_frames = SubResource("SpriteFrames_kjxej")
+animation = &"walk"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=70623375]
+visible = false
 texture = ExtResource("2_4ntmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272930349]

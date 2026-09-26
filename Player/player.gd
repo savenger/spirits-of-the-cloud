@@ -23,6 +23,8 @@ enum SpiritType { WATER, WIND }
 const WindMinigameScene := preload("res://Player/wind_minigame.tscn")
 const WeatherMinigameScene := preload("res://Player/weather_minigame.tscn")
 
+var sprite : AnimatedSprite2D
+
 var input: PlayerInput
 
 var jump_velocity: float
@@ -39,12 +41,25 @@ func _ready() -> void:
 
 	if spirit_type == SpiritType.WATER:
 		$Sprite2D.texture = load("res://Assets/Water_Spirit.png")
+		sprite = $AnimatedSprite2DWater
+		$AnimatedSprite2DWater.visible = true
+		$AnimatedSprite2DWind.visible = false
 	else:
 		$Sprite2D.texture = load("res://Assets/Wind_Spirit.png")
+		sprite = $AnimatedSprite2DWind
+		$AnimatedSprite2DWater.visible = false
+		$AnimatedSprite2DWind.visible = true
 
 func _physics_process(delta: float) -> void:
 	if input == null:
 		return
+
+	# Same rescue Cloud uses on itself: if the cloud shoves us into a hill hard
+	# enough that Godot's collision recovery can't fully depenetrate us in one
+	# step, we'd otherwise stay wedged in the hill forever even after the cloud
+	# moves on. Briefly stop colliding with terrain (layer 1, shared with the
+	# cloud) so gravity/movement can carry us back out.
+	collision_mask = 6 if move_and_collide(Vector2.ZERO, true, 0.08, true) else 7
 
 	if not is_on_floor():
 		var gravity := rise_gravity if velocity.y < 0.0 else fall_gravity
@@ -54,9 +69,11 @@ func _physics_process(delta: float) -> void:
 
 	if direction != 0.0:
 		velocity.x = direction * speed
-		$Sprite2D.flip_h = direction < 0.0
+		sprite.flip_h = direction < 0.0
+		sprite.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, speed)
+		sprite.play("idle")
 
 	if input.is_jump_just_pressed() and is_on_floor():
 		velocity.y = jump_velocity
@@ -87,7 +104,10 @@ func _physics_process(delta: float) -> void:
 	if cam:
 		if global_position.x > cam.global_position.x:
 			cam.position.x = position.x
-
+	
+	var cloud = get_tree().get_first_node_in_group("cloud")
+	if position.y > cloud.position.y:
+		position = cloud.position + Vector2(0, -1500)
 
 func _start_wind_minigame() -> void:
 	_wind_minigame = WindMinigameScene.instantiate()
