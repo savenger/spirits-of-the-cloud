@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://o2hsxt1hfyto"]
+
+[ext_resource type="Script" uid="uid://84tnt3ss6jpc" path="res://Level/tree.gd" id="1_sljaj"]
+[ext_resource type="Texture2D" uid="uid://bhcjwbmmxvc2n" path="res://Assets/Tree1.png" id="2_albo7"]
+[ext_resource type="Shader" uid="uid://en83chvwfytt" path="res://Level/tree.gdshader" id="2_i2sn7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
+shader = ExtResource("2_i2sn7")
+
+[node name="Tree" type="Node2D" unique_id=314926677]
+script = ExtResource("1_sljaj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=521293201]
+material = SubResource("ShaderMaterial_5vw27")
+texture = ExtResource("2_albo7")
+centered = false

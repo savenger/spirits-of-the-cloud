@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c64c2wm1urwk6"]
+
+[ext_resource type="Script" uid="uid://hhf0mcs2li26" path="res://Level/animal.gd" id="1_fnfj2"]
+
+[sub_resource type="Animation" id="Animation_fnfj2"]
+resource_name = "Pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.01, 1.01), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8p2oj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wolfi"]
+_data = {
+&"Pulse": SubResource("Animation_fnfj2"),
+&"RESET": SubResource("Animation_8p2oj")
+}
+
+[node name="Animal" type="Node2D" unique_id=75661596]
+script = ExtResource("1_fnfj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=270527074]
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=76839815]
+libraries/ = SubResource("AnimationLibrary_wolfi")
+autoplay = &"Pulse"

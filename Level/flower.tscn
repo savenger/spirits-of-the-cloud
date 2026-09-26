@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bxxuixgm4ir37"]
+
+[ext_resource type="Script" uid="uid://dre4mehffyf1w" path="res://Level/flower.gd" id="1_ba03q"]
+
+[node name="Flower" type="Node2D" unique_id=266979705]
+script = ExtResource("1_ba03q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570372464]
+centered = false

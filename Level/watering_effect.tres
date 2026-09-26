@@ -1,0 +1,24 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://b2vjtuow5u4t2"]
+
+[sub_resource type="Gradient" id="Gradient_watering"]
+offsets = PackedFloat32Array(0, 0.4, 1)
+colors = PackedColorArray(1, 1, 0.6, 1, 1, 0.75, 0.2, 1, 0.6, 0.9, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a1wkg"]
+gradient = SubResource("Gradient_watering")
+
+[resource]
+emission_shape = 3
+emission_box_extents = Vector3(120, 20, 1)
+angle_min = -223.9
+angle_max = 108.40001
+direction = Vector3(0, -1, 0)
+spread = 40.0
+initial_velocity_min = 60.0
+initial_velocity_max = 180.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, -60, 0)
+scale_min = 0.3
+scale_max = 0.9
+color_ramp = SubResource("GradientTexture1D_a1wkg")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://10vrda52ppb6"]
+
+[ext_resource type="Script" uid="uid://b3cdfauf485sr" path="res://Level/hill.gd" id="1_cgt3m"]
+[ext_resource type="Texture2D" uid="uid://xah2kwltqmhw" path="res://Assets/Hill1.png" id="2_qpn0m"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_l5ifi"]
+points = PackedVector2Array(504, 2023, 524, 1337, 733, 1196, 807, 711, 908, 745, 908, 227, 1237, 220, 1230, 66, 1903, 45, 1984, 469, 2536, 456, 2495, 644, 2737, 846, 3491, 873, 3679, 1996)
+
+[node name="Hill" type="StaticBody2D" unique_id=1930882028]
+script = ExtResource("1_cgt3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529820452]
+texture = ExtResource("2_qpn0m")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112997560]
+shape = SubResource("ConvexPolygonShape2D_l5ifi")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c75k5mefgbxmq"]
+
+[ext_resource type="Shader" uid="uid://2pk7nebqsugo" path="res://Level/field.gdshader" id="1_gnhl5"]
+[ext_resource type="Script" uid="uid://ymsuldx1ejy1" path="res://Level/field.gd" id="1_vu1i6"]
+[ext_resource type="Texture2D" uid="uid://cefjhwynw1n74" path="res://Assets/Drop.png" id="2_drop"]
+[ext_resource type="Material" uid="uid://b2vjtuow5u4t2" path="res://Level/watering_effect.tres" id="4_b76uc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enusa"]
+shader = ExtResource("1_gnhl5")
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_watering"]
+blend_mode = 1
+
+[node name="Field" type="Node2D" unique_id=2111147389]
+material = SubResource("ShaderMaterial_enusa")
+script = ExtResource("1_vu1i6")
+
+[node name="WateringEffect" type="GPUParticles2D" parent="." unique_id=-996517179]
+material = SubResource("CanvasItemMaterial_watering")
+emitting = false
+amount = 48
+texture = ExtResource("2_drop")
+lifetime = 1.1
+one_shot = true
+explosiveness = 0.85
+process_material = ExtResource("4_b76uc")

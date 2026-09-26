@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ckkekrc70xdsc"]
+
+[ext_resource type="Script" uid="uid://ca1tmyfjmyfae" path="res://Level/plant.gd" id="1_bh80j"]
+[ext_resource type="Texture2D" uid="uid://r7ed7372ifs6" path="res://Assets/Plant1.png" id="2_rtnak"]
+[ext_resource type="Texture2D" uid="uid://cefjhwynw1n74" path="res://Assets/Drop.png" id="2_s4lkk"]
+[ext_resource type="Material" uid="uid://b2vjtuow5u4t2" path="res://Level/watering_effect.tres" id="3_qlfdg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qlfdg"]
+blend_mode = 1
+
+[node name="Plant" type="Node2D" unique_id=1157056259]
+script = ExtResource("1_bh80j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=134602045]
+texture = ExtResource("2_rtnak")
+centered = false
+
+[node name="WateringEffect" type="GPUParticles2D" parent="." unique_id=1109086829]
+material = SubResource("CanvasItemMaterial_qlfdg")
+emitting = false
+amount = 20
+texture = ExtResource("2_s4lkk")
+lifetime = 1.1
+one_shot = true
+explosiveness = 0.85
+process_material = ExtResource("3_qlfdg")
