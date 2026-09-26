@@ -18,6 +18,7 @@ script = ExtResource("1_main")
 scale = Vector2(5, 5)
 
 [node name="Hud" parent="." unique_id=687065915 instance=ExtResource("3_4c57u")]
+scale = Vector2(5, 5)
 
 [node name="InputManager" type="Node" parent="." unique_id=1403941348]
 script = ExtResource("1_h2yge")
@@ -38,7 +39,7 @@ spirit_type = 1
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=814555869 node_paths=PackedStringArray("object1", "object2") groups=["camera"]]
 offset = Vector2(0, 1250)
-zoom = Vector2(0.17, 0.17)
+zoom = Vector2(0.195, 0.195)
 limit_left = 0
 limit_top = 0
 limit_bottom = 750
@@ -55,6 +56,6 @@ texture = ExtResource("5_lquwl")
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=961543245]
 z_index = -2
-position = Vector2(36126, 3147)
+position = Vector2(36126.004, 2904)
 scale = Vector2(70.558, 6)
 texture = ExtResource("7_272bh")

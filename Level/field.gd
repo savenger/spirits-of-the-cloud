@@ -20,19 +20,19 @@ var timer = Timer.new()
 func spawn_plant(plant_offset):
 	var plant : Node2D = plant_template.instantiate()
 	add_child(plant)
-	plant.position = Vector2(plant_offset + randf() * 100, 100)
+	plant.position = Vector2(plant_offset + randf() * 100, 0)
 	return plant.position.x
 
 func spawn_flower(plant_offset):
 	var flower : Node2D = flower_template.instantiate()
 	add_child(flower)
-	flower.position = Vector2(plant_offset + randf() * 100, 0)
+	flower.position = Vector2(plant_offset + randf() * 100, -100)
 	return flower.position.x
 		
 func spawn_animal(animal_offset, flipped = false):
 	var animal : Node2D = animal_template.instantiate()
 	add_child(animal)
-	animal.position = Vector2(animal_offset + randf() * 100, 100)
+	animal.position = Vector2(animal_offset + randf() * 100, 0)
 	animal.z_index = 1
 	if flipped:
 		animal.get_node("Sprite2D").flip_h = true
