@@ -1,9 +1,32 @@
 [gd_scene format=3 uid="uid://bxxuixgm4ir37"]
 
 [ext_resource type="Script" uid="uid://dre4mehffyf1w" path="res://Level/flower.gd" id="1_ba03q"]
+[ext_resource type="Shader" uid="uid://2pk7nebqsugo" path="res://Level/field.gdshader" id="2_yktro"]
+[ext_resource type="Texture2D" uid="uid://bjcdsmcyxujb6" path="res://Assets/Leaf.png" id="3_0utwi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc2ih"]
+shader = ExtResource("2_yktro")
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dvjh1"]
+particle_flag_disable_z = true
+angle_min = -363.9
+angle_max = 232.30002
+spread = 138.176
+initial_velocity_min = 91.4
+initial_velocity_max = 91.4
+gravity = Vector3(0, 98, 0)
 
 [node name="Flower" type="Node2D" unique_id=266979705]
 script = ExtResource("1_ba03q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570372464]
 centered = false
+
+[node name="DryEffect" type="GPUParticles2D" parent="." unique_id=1359050625]
+material = SubResource("ShaderMaterial_qc2ih")
+position = Vector2(0, -99)
+emitting = false
+texture = ExtResource("3_0utwi")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_dvjh1")

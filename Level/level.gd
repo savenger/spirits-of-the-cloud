@@ -69,6 +69,7 @@ func _ready():
 	spawn_hill(0)
 
 	Global.field_fully_watered.connect(generate_new_field)
+	Global.field_lost.connect(generate_new_field)
 
 func generate_new_field(offset: int):
 	spawn_trees(offset + Global.VIEW_WIDTH)

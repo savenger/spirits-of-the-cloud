@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://trdjw1yv6cwm"]
 
-[node name="Hud" type="Control" unique_id=687065915]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Texture2D" uid="uid://bjcdsmcyxujb6" path="res://Assets/Leaf.png" id="1_b7ubu"]
+[ext_resource type="Script" uid="uid://bwc3vfn7meqau" path="res://HUD/hud.gd" id="1_ja1d4"]
+[ext_resource type="Shader" uid="uid://2pk7nebqsugo" path="res://Level/field.gdshader" id="2_ja1d4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enusa"]
+shader = ExtResource("2_ja1d4")
+shader_parameter/tint_strength = 1.0
+
+[node name="Hud" type="CanvasLayer" unique_id=411314177]
+script = ExtResource("1_ja1d4")
 
 [node name="lblPlayer1" type="Label" parent="." unique_id=1463324936]
-layout_mode = 0
 offset_left = 14.0
 offset_top = 8.0
 offset_right = 189.0
@@ -17,9 +19,42 @@ offset_bottom = 31.0
 text = "Player 1: Press any key"
 
 [node name="lblPlayer2" type="Label" parent="." unique_id=148530682]
-layout_mode = 0
 offset_left = 964.0
 offset_top = 9.0
 offset_right = 1139.0
 offset_bottom = 32.0
 text = "Player 2: Press any key"
+
+[node name="Stats" type="Control" parent="." unique_id=1409381553]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="spriteLeaf" type="Sprite2D" parent="Stats" unique_id=1998851199]
+position = Vector2(237, 26)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_b7ubu")
+
+[node name="spriteLeafDry" type="Sprite2D" parent="Stats" unique_id=875016297]
+material = SubResource("ShaderMaterial_enusa")
+position = Vector2(20, 27)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_b7ubu")
+
+[node name="lblWateredFields" type="Label" parent="Stats" unique_id=1112824693]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 17.0
+offset_right = 433.0
+offset_bottom = 40.0
+text = "Watered Fields: 0"
+
+[node name="lblDriedOutFields" type="Label" parent="Stats" unique_id=864799417]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 39.0
+text = "Died Out Fields: 0"

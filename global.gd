@@ -1,6 +1,7 @@
 extends Node
 
 signal field_fully_watered(offset: int)
+signal field_lost(offset: int)
 
 signal weather_influenced(duration: float)
 

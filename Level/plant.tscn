@@ -4,9 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://r7ed7372ifs6" path="res://Assets/Plant1.png" id="2_rtnak"]
 [ext_resource type="Texture2D" uid="uid://cefjhwynw1n74" path="res://Assets/Drop.png" id="2_s4lkk"]
 [ext_resource type="Material" uid="uid://b2vjtuow5u4t2" path="res://Level/watering_effect.tres" id="3_qlfdg"]
+[ext_resource type="Shader" uid="uid://2pk7nebqsugo" path="res://Level/field.gdshader" id="5_i8jve"]
+[ext_resource type="Texture2D" uid="uid://bjcdsmcyxujb6" path="res://Assets/Leaf.png" id="6_sptli"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qlfdg"]
 blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwgo4"]
+shader = ExtResource("5_i8jve")
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qk0vb"]
+particle_flag_disable_z = true
+angle_min = -363.9
+angle_max = 232.30002
+spread = 138.176
+initial_velocity_min = 91.4
+initial_velocity_max = 91.4
+gravity = Vector3(0, 98, 0)
 
 [node name="Plant" type="Node2D" unique_id=1157056259]
 script = ExtResource("1_bh80j")
@@ -24,3 +39,11 @@ lifetime = 1.1
 one_shot = true
 explosiveness = 0.85
 process_material = ExtResource("3_qlfdg")
+
+[node name="DryEffect" type="GPUParticles2D" parent="." unique_id=145421324]
+material = SubResource("ShaderMaterial_uwgo4")
+position = Vector2(3, -100)
+emitting = false
+texture = ExtResource("6_sptli")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_qk0vb")

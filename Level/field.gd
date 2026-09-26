@@ -16,6 +16,9 @@ var field_center = Vector2(0, 0)
 var _fully_watered := false
 
 var timer = Timer.new()
+var timer_free = Timer.new()
+
+
 
 func spawn_plant(plant_offset):
 	var plant : Node2D = plant_template.instantiate()
@@ -62,12 +65,23 @@ func _ready():
 	timer.timeout.connect(_on_timer_fade_timeout)
 	add_child(timer)
 	timer.start()
+	
+	timer_free.wait_time = 4.0
+	timer_free.timeout.connect(_on_timeout_timer_free)
+	add_child(timer_free)
 
 func _on_timer_fade_timeout():
 	water_level -= 0.1
 	update_fade_status()
 	if water_level <= 0.0:
 		timer.stop()
+		for n in get_children():
+			if n.is_in_group("plant") or n.is_in_group("flower"):
+				n.dry_out()
+		Global.field_lost.emit(global_position.x)
+
+func _on_timeout_timer_free():
+	queue_free()
 
 func update_fade_status():
 	for n in get_children():
