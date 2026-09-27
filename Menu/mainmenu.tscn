@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpimhdppjgx83" path="res://Assets/Volume bar.png" id="4_xtlvs"]
 [ext_resource type="Texture2D" uid="uid://cm7i7c12ty0tj" path="res://Assets/Controls screen.png" id="5_xtlvs"]
 [ext_resource type="Texture2D" uid="uid://clyayiyruy8pv" path="res://Assets/Game over.png" id="6_fq3u5"]
+[ext_resource type="Texture2D" uid="uid://bfggy617q63ym" path="res://Assets/About screen.png" id="7_k0j65"]
 
 [node name="Mainmenu" type="CanvasLayer" unique_id=810702038]
 process_mode = 3
@@ -95,13 +96,23 @@ texture = ExtResource("5_xtlvs")
 
 [node name="btnCloseControls" type="Button" parent="ControlsContainer" unique_id=1640422700]
 layout_mode = 0
-offset_left = 984.0
-offset_top = 529.0
-offset_right = 1134.0
-offset_bottom = 629.0
+offset_left = 968.0
+offset_top = 25.0
+offset_right = 1118.0
+offset_bottom = 125.0
 theme = ExtResource("3_m0p0e")
 theme_override_font_sizes/font_size = 30
 text = "Close"
+
+[node name="btnAbout" type="Button" parent="ControlsContainer" unique_id=811835861]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 25.0
+offset_right = 926.0
+offset_bottom = 125.0
+theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 30
+text = "Instructions"
 
 [node name="GameOverContainer" type="Control" parent="." unique_id=1523250738]
 visible = false
@@ -206,13 +217,58 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
+[node name="AboutContainer" type="Control" parent="." unique_id=69731601]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="AboutContainer" unique_id=13431247]
+texture = ExtResource("7_k0j65")
+centered = false
+
+[node name="btnStart" type="Button" parent="AboutContainer" unique_id=2109514464]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 470.0
+offset_right = 437.0
+offset_bottom = 570.0
+theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
+text = "Start"
+
+[node name="btnControls" type="Button" parent="AboutContainer" unique_id=1847139017]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 470.0
+offset_right = 644.0
+offset_bottom = 570.0
+theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+
+[node name="btnQuit" type="Button" parent="AboutContainer" unique_id=1720625956]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 470.0
+offset_right = 867.0
+offset_bottom = 570.0
+theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
+text = "Quit"
+
 [connection signal="pressed" from="MenuContainer/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="MenuContainer/btnControls" to="." method="_on_btn_controls_pressed"]
 [connection signal="pressed" from="MenuContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
 [connection signal="value_changed" from="MenuContainer/Control/sliderVolume" to="." method="_on_slider_volume_value_changed"]
 [connection signal="pressed" from="ControlsContainer/btnCloseControls" to="." method="_on_btn_close_controls_pressed"]
+[connection signal="pressed" from="ControlsContainer/btnAbout" to="." method="_on_btn_about_pressed"]
 [connection signal="pressed" from="GameOverContainer/btnStart" to="." method="_on_btn_start_over_pressed"]
 [connection signal="pressed" from="GameOverContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
 [connection signal="pressed" from="PauseContainer/btnContinue" to="." method="_on_btn_continue_pressed"]
 [connection signal="pressed" from="PauseContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
 [connection signal="value_changed" from="PauseContainer/Control/sliderVolume" to="." method="_on_slider_volume_value_changed"]
+[connection signal="pressed" from="AboutContainer/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="AboutContainer/btnControls" to="." method="_on_btn_controls_pressed"]
+[connection signal="pressed" from="AboutContainer/btnQuit" to="." method="_on_btn_quit_pressed"]

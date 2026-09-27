@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://0tplbafpv6mc" path="res://Assets/Grass.png" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ccwp5tc8ru2t0" path="res://Menu/mainmenu.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dy70fnpudmt3b" path="res://Player/cloud.tscn" id="9_cloud"]
+[ext_resource type="Texture2D" uid="uid://jsjd15jrvu6k" path="res://Assets/Paralax background_1.png" id="11_dg77c"]
+[ext_resource type="Texture2D" uid="uid://bj45kcu44p47r" path="res://Assets/Paralax background_2.png" id="12_ycdy4"]
 
 [node name="Main" type="Node2D" unique_id=327813465]
 script = ExtResource("1_main")
@@ -46,8 +48,31 @@ script = ExtResource("5_7mycd")
 object1 = NodePath("../Player1")
 object2 = NodePath("../Player2")
 
+[node name="Node2D" type="Node2D" parent="." unique_id=1055290383]
+z_index = -6
+scale = Vector2(2.2, 2.2)
+
+[node name="Parallax2DBlue" type="Parallax2D" parent="Node2D" unique_id=296996761]
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(4096, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2DBlue" unique_id=1579359117]
+texture = ExtResource("12_ycdy4")
+centered = false
+
+[node name="Parallax2DGrey" type="Parallax2D" parent="Node2D" unique_id=985054236]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-3847.7273, 61.363636)
+repeat_size = Vector2(4096, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2DGrey" unique_id=282165254]
+texture = ExtResource("11_dg77c")
+centered = false
+
 [node name="Sky" type="Sprite2D" parent="." unique_id=440335715]
-z_index = -2
+z_index = -10
 position = Vector2(30915, 1460.0001)
 scale = Vector2(60.381, 3.4)
 texture = ExtResource("5_lquwl")

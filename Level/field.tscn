@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cefjhwynw1n74" path="res://Assets/Drop.png" id="2_drop"]
 [ext_resource type="Material" uid="uid://b2vjtuow5u4t2" path="res://Level/watering_effect.tres" id="4_b76uc"]
 [ext_resource type="AudioStream" uid="uid://2tbuo14kbixs" path="res://Assets/watering_grass.mp3" id="5_ayld5"]
+[ext_resource type="AudioStream" uid="uid://b0whcsruh5dwp" path="res://Assets/maggie_fondor.mp3" id="6_at64g"]
 [ext_resource type="AudioStream" uid="uid://dmgwr0hne8703" path="res://Assets/plant_dryout.mp3" id="6_rofj0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_enusa"]
@@ -34,6 +35,8 @@ max_distance = 8000.0
 bus = &"Sound"
 
 [node name="AudioStreamPlayer2DFullyWatered" type="AudioStreamPlayer2D" parent="." unique_id=1888422163]
+stream = ExtResource("6_at64g")
+volume_db = 7.298
 max_distance = 8000.0
 bus = &"Sound"
 

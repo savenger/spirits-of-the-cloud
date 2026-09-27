@@ -24,6 +24,7 @@ func hide_all_menus():
 	$ControlsContainer.visible = false
 	$GameOverContainer.visible = false
 	$PauseContainer.visible = false
+	$AboutContainer.visible = false
 
 func _on_btn_start_pressed() -> void:
 	get_tree().paused = false
@@ -66,3 +67,8 @@ func _on_btn_continue_pressed() -> void:
 
 func _on_btn_start_over_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_btn_about_pressed() -> void:
+	hide_all_menus()
+	$AboutContainer.visible = true
