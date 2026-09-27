@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mkravfrlsrwe" path="res://Menu/mainmenu.gd" id="1_ht6lu"]
 [ext_resource type="Texture2D" uid="uid://btjj8q66ba38q" path="res://Assets/Splash screen menu.png" id="2_c6gbj"]
 [ext_resource type="Texture2D" uid="uid://4ogd1am32iys" path="res://icon.svg" id="2_n03x5"]
+[ext_resource type="Theme" uid="uid://cgavtb7nex7dp" path="res://default_theme.tres" id="3_m0p0e"]
 
 [node name="Mainmenu" type="Control" unique_id=216117690]
 process_mode = 3
@@ -29,6 +30,7 @@ offset_left = 255.0
 offset_top = 497.0
 offset_right = 301.0
 offset_bottom = 528.0
+theme = ExtResource("3_m0p0e")
 text = "Start"
 
 [node name="btnControls" type="Button" parent="MenuContainer" unique_id=81503380]
@@ -37,6 +39,7 @@ offset_left = 319.0
 offset_top = 497.0
 offset_right = 393.0
 offset_bottom = 528.0
+theme = ExtResource("3_m0p0e")
 text = "Controls"
 
 [node name="btnQuit" type="Button" parent="MenuContainer" unique_id=732912980]
@@ -45,6 +48,7 @@ offset_left = 411.0
 offset_top = 497.0
 offset_right = 457.0
 offset_bottom = 528.0
+theme = ExtResource("3_m0p0e")
 text = "Quit"
 
 [node name="lblVolume" type="Label" parent="MenuContainer" unique_id=1976357765]
@@ -53,6 +57,7 @@ offset_left = 505.0
 offset_top = 497.0
 offset_right = 569.0
 offset_bottom = 520.0
+theme = ExtResource("3_m0p0e")
 text = "Volume:"
 
 [node name="sliderVolume" type="HSlider" parent="MenuContainer" unique_id=2055507024]
@@ -82,9 +87,11 @@ offset_left = 410.0
 offset_top = 497.0
 offset_right = 460.0
 offset_bottom = 528.0
+theme = ExtResource("3_m0p0e")
 text = "Close"
 
 [node name="GameOverContainer" type="Control" parent="." unique_id=1523250738]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -97,6 +104,7 @@ offset_left = 255.0
 offset_top = 497.0
 offset_right = 301.0
 offset_bottom = 528.0
+theme = ExtResource("3_m0p0e")
 text = "Start"
 
 [node name="btnQuit" type="Button" parent="GameOverContainer" unique_id=989643917]
@@ -105,6 +113,7 @@ offset_left = 411.0
 offset_top = 497.0
 offset_right = 457.0
 offset_bottom = 528.0
+theme = ExtResource("3_m0p0e")
 text = "Quit"
 
 [connection signal="pressed" from="MenuContainer/btnStart" to="." method="_on_btn_start_pressed"]

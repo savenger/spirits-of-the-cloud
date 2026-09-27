@@ -75,6 +75,7 @@ func _physics_process(delta: float) -> void:
 ## direction is -1 (left) or 1 (right). Adds an instant kick that decays over time.
 func apply_wind(direction: float, force: float) -> void:
 	_wind_velocity.x += direction * force
+	$AudioStreamPlayerMovement.play()
 
 
 ## vertical_direction is -1 (up, warming) or 1 (down, cooling). Call every physics

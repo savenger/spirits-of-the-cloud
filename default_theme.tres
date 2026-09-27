@@ -1,0 +1,30 @@
+[gd_resource type="Theme" format=3 uid="uid://cgavtb7nex7dp"]
+
+[ext_resource type="Texture2D" uid="uid://bo6si10mlwo18" path="res://Assets/Cloud_Button.png" id="1_e7bfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e7bfs"]
+texture = ExtResource("1_e7bfs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7j863"]
+texture = ExtResource("1_e7bfs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3taad"]
+texture = ExtResource("1_e7bfs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bp0wp"]
+texture = ExtResource("1_e7bfs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50bnw"]
+texture = ExtResource("1_e7bfs")
+
+[resource]
+Button/colors/font_color = Color(0, 0.15294118, 0.39607844, 1)
+Button/colors/font_hover_color = Color(0, 0.40392157, 0.6156863, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0.15294118, 0.39607844, 1)
+Button/colors/font_pressed_color = Color(0, 0.15294118, 0.39607844, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_e7bfs")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_7j863")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_3taad")
+Button/styles/normal = SubResource("StyleBoxTexture_bp0wp")
+Button/styles/pressed = SubResource("StyleBoxTexture_50bnw")
+Label/colors/font_color = Color(0, 0.15294118, 0.39607844, 1)
