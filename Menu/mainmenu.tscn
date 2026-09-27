@@ -7,17 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cm7i7c12ty0tj" path="res://Assets/Controls screen.png" id="5_xtlvs"]
 [ext_resource type="Texture2D" uid="uid://clyayiyruy8pv" path="res://Assets/Game over.png" id="6_fq3u5"]
 
-[node name="Mainmenu" type="Control" unique_id=216117690]
+[node name="Mainmenu" type="CanvasLayer" unique_id=810702038]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_ht6lu")
 
 [node name="MenuContainer" type="Control" parent="." unique_id=960020447]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -89,6 +84,7 @@ value = 1.0
 
 [node name="ControlsContainer" type="Control" parent="." unique_id=1419368512]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -109,6 +105,7 @@ text = "Close"
 
 [node name="GameOverContainer" type="Control" parent="." unique_id=1523250738]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -149,6 +146,7 @@ text = "Game Over"
 
 [node name="PauseContainer" type="Control" parent="." unique_id=1411159139]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

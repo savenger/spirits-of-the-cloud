@@ -11,3 +11,7 @@ script = ExtResource("3_weather")
 
 [node name="MarkerGround" type="Marker2D" parent="." unique_id=392133342]
 position = Vector2(0, 3240)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1880562852]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=892261177]

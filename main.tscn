@@ -28,9 +28,11 @@ position = Vector2(1469, 857)
 
 [node name="Player1" parent="World" unique_id=1579585161 instance=ExtResource("3_h2yge")]
 position = Vector2(1047, -300)
+collision_layer = 5
 
 [node name="Player2" parent="World" unique_id=174323348 instance=ExtResource("3_h2yge")]
 position = Vector2(1755, -312)
+collision_layer = 5
 spirit_type = 1
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=814555869 node_paths=PackedStringArray("object1", "object2") groups=["camera"]]
@@ -57,5 +59,3 @@ scale = Vector2(70.558, 6)
 texture = ExtResource("7_272bh")
 
 [node name="Mainmenu" parent="." unique_id=216117690 instance=ExtResource("8_5vw27")]
-z_index = 2
-scale = Vector2(5, 5)
