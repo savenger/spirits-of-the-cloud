@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://mkravfrlsrwe" path="res://Menu/mainmenu.gd" id="1_ht6lu"]
 [ext_resource type="Texture2D" uid="uid://btjj8q66ba38q" path="res://Assets/Splash screen menu.png" id="2_c6gbj"]
-[ext_resource type="Texture2D" uid="uid://4ogd1am32iys" path="res://icon.svg" id="2_n03x5"]
 [ext_resource type="Theme" uid="uid://cgavtb7nex7dp" path="res://default_theme.tres" id="3_m0p0e"]
 [ext_resource type="Texture2D" uid="uid://bpimhdppjgx83" path="res://Assets/Volume bar.png" id="4_xtlvs"]
+[ext_resource type="Texture2D" uid="uid://cm7i7c12ty0tj" path="res://Assets/Controls screen.png" id="5_xtlvs"]
+[ext_resource type="Texture2D" uid="uid://clyayiyruy8pv" path="res://Assets/Game over.png" id="6_fq3u5"]
 
 [node name="Mainmenu" type="Control" unique_id=216117690]
 process_mode = 3
@@ -22,7 +23,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="MenuContainer" unique_id=1867769366]
-position = Vector2(575.5, 325)
+position = Vector2(576.5, 324)
 texture = ExtResource("2_c6gbj")
 
 [node name="btnStart" type="Button" parent="MenuContainer" unique_id=408462333]
@@ -94,16 +95,16 @@ offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ControlsContainer" unique_id=1805295842]
 position = Vector2(576, 324)
-scale = Vector2(9, 5.0625)
-texture = ExtResource("2_n03x5")
+texture = ExtResource("5_xtlvs")
 
 [node name="btnCloseControls" type="Button" parent="ControlsContainer" unique_id=1640422700]
 layout_mode = 0
-offset_left = 410.0
-offset_top = 497.0
-offset_right = 460.0
-offset_bottom = 528.0
+offset_left = 984.0
+offset_top = 529.0
+offset_right = 1134.0
+offset_bottom = 629.0
 theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 30
 text = "Close"
 
 [node name="GameOverContainer" type="Control" parent="." unique_id=1523250738]
@@ -113,24 +114,38 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="GameOverContainer" unique_id=367616026]
+position = Vector2(576, 324)
+texture = ExtResource("6_fq3u5")
 
 [node name="btnStart" type="Button" parent="GameOverContainer" unique_id=1216093943]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 497.0
-offset_right = 301.0
-offset_bottom = 528.0
+offset_left = 365.0
+offset_top = 370.0
+offset_right = 515.0
+offset_bottom = 470.0
 theme = ExtResource("3_m0p0e")
-text = "Start"
+theme_override_font_sizes/font_size = 30
+text = "Retry"
 
 [node name="btnQuit" type="Button" parent="GameOverContainer" unique_id=989643917]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 497.0
-offset_right = 457.0
-offset_bottom = 528.0
+offset_left = 618.0
+offset_top = 370.0
+offset_right = 768.0
+offset_bottom = 470.0
 theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="Label" type="Label" parent="GameOverContainer" unique_id=713789513]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 222.0
+offset_right = 682.0
+offset_bottom = 295.0
+theme_override_colors/font_color = Color(0, 0.15294118, 0.39607844, 1)
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
 
 [node name="PauseContainer" type="Control" parent="." unique_id=1411159139]
 visible = false

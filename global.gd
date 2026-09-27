@@ -32,7 +32,7 @@ const TREE_COUNT = 5
 const VIEW_WIDTH = 5760
 const VIEW_HEIGHT = 3240
 
-const FIELDS_LOST_MAX = 1
+const FIELDS_LOST_MAX = 3
 
 func fade_in_or_out(audio_stream_player: AudioStreamPlayer2D, duration: float = 1.0, start_db: float = -80.0, target_db: float = 0.0) -> void:
 	# Optional: Start muted or quiet before playing
