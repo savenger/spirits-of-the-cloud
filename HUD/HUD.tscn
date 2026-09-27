@@ -8,6 +8,67 @@
 shader = ExtResource("2_ja1d4")
 shader_parameter/tint_strength = 1.0
 
+[sub_resource type="Animation" id="Animation_ja1d4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblPlayer1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblPlayer2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_amwvk"]
+resource_name = "player_info"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblPlayer1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 1.04), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblPlayer2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 1.04), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aa5tu"]
+_data = {
+&"RESET": SubResource("Animation_ja1d4"),
+&"player_info": SubResource("Animation_amwvk")
+}
+
 [node name="Hud" type="CanvasLayer" unique_id=411314177]
 script = ExtResource("1_ja1d4")
 
@@ -16,13 +77,15 @@ offset_left = 14.0
 offset_top = 8.0
 offset_right = 189.0
 offset_bottom = 31.0
+theme_override_font_sizes/font_size = 30
 text = "Player 1: Press any key"
 
 [node name="lblPlayer2" type="Label" parent="." unique_id=148530682]
-offset_left = 964.0
-offset_top = 9.0
-offset_right = 1139.0
-offset_bottom = 32.0
+offset_left = 893.0
+offset_top = 11.0
+offset_right = 1133.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 30
 text = "Player 2: Press any key"
 
 [node name="Stats" type="Control" parent="." unique_id=1409381553]
@@ -58,3 +121,7 @@ offset_top = 16.0
 offset_right = 213.0
 offset_bottom = 39.0
 text = "Died Out Fields: 0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1386325157]
+libraries/ = SubResource("AnimationLibrary_aa5tu")
+autoplay = &"player_info"

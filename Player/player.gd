@@ -79,25 +79,25 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 		$AudioStreamPlayer2DJump.play()
 
-	if input.is_call_wind_just_pressed() and can_call_wind:
+	if input.is_call_wind_just_pressed() and can_call_wind and not _weather_minigame:
 		if _wind_minigame:
 			_resolve_wind_minigame()
 		else:
 			_start_wind_minigame()
 
-	if input.is_cancel_just_pressed() and _wind_minigame:
-		_wind_minigame.cancel()
-		_wind_minigame = null
-
-	if input.is_influence_weather_just_pressed() and can_influence_weather:
+	if input.is_influence_weather_just_pressed() and can_influence_weather and not _wind_minigame:
 		if _weather_minigame:
 			_resolve_weather_minigame()
 		else:
 			_start_weather_minigame()
 	
-	if input.is_cancel_just_pressed() and _weather_minigame:
-		_weather_minigame.cancel()
-		_weather_minigame = null
+	if input.is_cancel_just_pressed():
+		if _weather_minigame:
+			_weather_minigame.cancel()
+			_weather_minigame = null
+		if _wind_minigame:
+			_wind_minigame.cancel()
+			_wind_minigame = null
 
 	move_and_slide()
 	
