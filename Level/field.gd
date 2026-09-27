@@ -1,6 +1,6 @@
 extends Node2D
 
-var water_level := 2.0
+var water_level := 3.0
 
 var plant_template = preload("res://Level/plant.tscn")
 var flower_template = preload("res://Level/flower.tscn")
@@ -61,7 +61,8 @@ func generate_field():
 
 func _ready():
 	generate_field()
-	timer.wait_time = 0.4
+	timer.wait_time = 1.0 - ((Global.fields_saved + Global.fields_lost) * 0.05)
+	timer.wait_time = max(0.2, timer.wait_time)
 	timer.timeout.connect(_on_timer_fade_timeout)
 	add_child(timer)
 	timer.start()

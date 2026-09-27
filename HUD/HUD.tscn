@@ -34,6 +34,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lblNextField:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.0023537, 1.0023537)]
+}
 
 [sub_resource type="Animation" id="Animation_amwvk"]
 resource_name = "player_info"
@@ -58,6 +70,18 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 1.04), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lblNextField:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.04, 1.04), Vector2(1, 1)]
@@ -87,6 +111,16 @@ offset_right = 1133.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
 text = "Player 2: Press any key"
+
+[node name="lblNextField" type="Label" parent="." unique_id=400560325]
+visible = false
+offset_left = 453.99988
+offset_top = 309.00003
+offset_right = 693.9999
+offset_bottom = 346.00003
+scale = Vector2(1.0023537, 1.0023537)
+theme_override_font_sizes/font_size = 30
+text = "Rush to the next field!"
 
 [node name="Stats" type="Control" parent="." unique_id=1409381553]
 visible = false

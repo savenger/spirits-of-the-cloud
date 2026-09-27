@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dy70fnpudmt3b" path="res://Player/cloud.tscn" id="9_cloud"]
 [ext_resource type="Texture2D" uid="uid://jsjd15jrvu6k" path="res://Assets/Paralax background_1.png" id="11_dg77c"]
 [ext_resource type="Texture2D" uid="uid://bj45kcu44p47r" path="res://Assets/Paralax background_2.png" id="12_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://cn4cjfceid8a" path="res://Assets/music_moreorless.mp3" id="13_ycdy4"]
 
 [node name="Main" type="Node2D" unique_id=327813465]
 script = ExtResource("1_main")
@@ -30,11 +31,9 @@ position = Vector2(1469, 857)
 
 [node name="Player1" parent="World" unique_id=1579585161 instance=ExtResource("3_h2yge")]
 position = Vector2(1047, -300)
-collision_layer = 5
 
 [node name="Player2" parent="World" unique_id=174323348 instance=ExtResource("3_h2yge")]
 position = Vector2(1755, -312)
-collision_layer = 5
 spirit_type = 1
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=814555869 node_paths=PackedStringArray("object1", "object2") groups=["camera"]]
@@ -84,3 +83,10 @@ scale = Vector2(70.558, 6)
 texture = ExtResource("7_272bh")
 
 [node name="Mainmenu" parent="." unique_id=216117690 instance=ExtResource("8_5vw27")]
+
+[node name="AudioStreamPlayer2DMusic" type="AudioStreamPlayer2D" parent="." unique_id=1293353737]
+process_mode = 3
+stream = ExtResource("13_ycdy4")
+autoplay = true
+max_distance = 8000.0
+bus = &"Music"
