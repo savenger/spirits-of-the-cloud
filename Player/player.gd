@@ -77,6 +77,7 @@ func _physics_process(delta: float) -> void:
 
 	if input.is_jump_just_pressed() and is_on_floor():
 		velocity.y = jump_velocity
+		$AudioStreamPlayer2DJump.play()
 
 	if input.is_call_wind_just_pressed() and can_call_wind:
 		if _wind_minigame:

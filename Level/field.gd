@@ -77,6 +77,7 @@ func _on_timer_fade_timeout():
 	water_level -= 0.1
 	update_fade_status()
 	if water_level <= 0.0:
+		$AudioStreamPlayer2DDriedOut.play()
 		timer.stop()
 		timer_free.start()
 		for n in get_children():
@@ -103,6 +104,7 @@ func add_water(delta: float):
 	if water_level >= WATER_LEVEL_MAX:
 		if not _fully_watered:
 			Global.field_fully_watered.emit(global_position.x)
+			$AudioStreamPlayer2DFullyWatered.play()
 			_fully_watered = true
 			timer.stop()
 			for n in get_children():

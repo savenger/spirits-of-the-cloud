@@ -31,3 +31,9 @@ process_material = ExtResource("4_b76uc")
 stream = ExtResource("5_ayld5")
 max_distance = 8000.0
 bus = &"Sound"
+
+[node name="AudioStreamPlayer2DFullyWatered" type="AudioStreamPlayer2D" parent="." unique_id=1888422163]
+bus = &"Sound"
+
+[node name="AudioStreamPlayer2DDriedOut" type="AudioStreamPlayer2D" parent="." unique_id=1931876886]
+bus = &"Sound"
