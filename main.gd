@@ -21,10 +21,28 @@ func _ready() -> void:
 	player_2.set_physics_process(false)
 
 	input_manager.player_joined.connect(_on_player_joined)
+	input_manager.player_removed.connect(_on_player_removed)
 	$Mainmenu.game_start.connect(start_game)
 
 func start_game():
+	Global.reset()
+	while input_manager.get_player_count() > 0:
+		input_manager.remove_player(input_manager.get_player_count())
 	$Mainmenu.visible = false
+
+func _on_player_removed(player_id: int):
+	if player_id == 1:
+		player_1.hide()
+		player_1.set_physics_process(false)
+		player_1.input = null
+		$Hud/lblPlayer1.visible = true
+		$Hud/Stats.visible = false
+	if player_id == 2:
+		player_1.can_call_wind = true
+		player_2.hide()
+		player_2.set_physics_process(false)
+		player_2.input = null
+		$Hud/lblPlayer2.visible = true
 
 func _on_player_joined(
 	player_id: int,
@@ -45,6 +63,7 @@ func _on_player_joined(
 		player_2.input = player_input
 		player_2.can_call_wind = true
 		player_2.can_influence_weather = false
+		player_1.can_call_wind = false
 		player_2.show()
 		player_2.set_physics_process(true)
 		$Hud/lblPlayer2.visible = false

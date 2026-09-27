@@ -11,6 +11,9 @@ func on_field_fully_watered(offset):
 func on_field_lost(offset):
 	Global.fields_lost += 1
 	update_stats()
+	
+	if Global.fields_lost >= Global.FIELDS_LOST_MAX:
+		Global.game_over.emit()
 
 func update_stats():
 	$Stats/lblWateredFields.text = "Saved Fields: " + str(Global.fields_saved)

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ymsuldx1ejy1" path="res://Level/field.gd" id="1_vu1i6"]
 [ext_resource type="Texture2D" uid="uid://cefjhwynw1n74" path="res://Assets/Drop.png" id="2_drop"]
 [ext_resource type="Material" uid="uid://b2vjtuow5u4t2" path="res://Level/watering_effect.tres" id="4_b76uc"]
+[ext_resource type="AudioStream" uid="uid://2tbuo14kbixs" path="res://Assets/watering_grass.mp3" id="5_ayld5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_enusa"]
 shader = ExtResource("1_gnhl5")
@@ -25,3 +26,8 @@ lifetime = 1.1
 one_shot = true
 explosiveness = 0.85
 process_material = ExtResource("4_b76uc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1082896607]
+stream = ExtResource("5_ayld5")
+max_distance = 8000.0
+bus = &"Sound"

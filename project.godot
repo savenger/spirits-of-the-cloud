@@ -30,6 +30,10 @@ player=""
 rain_cloud=""
 camera=""
 
+[gui]
+
+theme/custom_font="uid://l3i64yk7rchg"
+
 [input]
 
 move_left={

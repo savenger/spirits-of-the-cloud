@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccwp5tc8ru2t0"]
 
 [ext_resource type="Script" uid="uid://mkravfrlsrwe" path="res://Menu/mainmenu.gd" id="1_ht6lu"]
+[ext_resource type="Texture2D" uid="uid://btjj8q66ba38q" path="res://Assets/Splash screen menu.png" id="2_c6gbj"]
 [ext_resource type="Texture2D" uid="uid://4ogd1am32iys" path="res://icon.svg" id="2_n03x5"]
 
 [node name="Mainmenu" type="Control" unique_id=216117690]
@@ -20,8 +21,7 @@ offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="MenuContainer" unique_id=1867769366]
 position = Vector2(575.5, 325)
-scale = Vector2(8.9609375, 5.046875)
-texture = ExtResource("2_n03x5")
+texture = ExtResource("2_c6gbj")
 
 [node name="btnStart" type="Button" parent="MenuContainer" unique_id=408462333]
 layout_mode = 0
@@ -84,8 +84,33 @@ offset_right = 460.0
 offset_bottom = 528.0
 text = "Close"
 
+[node name="GameOverContainer" type="Control" parent="." unique_id=1523250738]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GameOverContainer" unique_id=367616026]
+
+[node name="btnStart" type="Button" parent="GameOverContainer" unique_id=1216093943]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 497.0
+offset_right = 301.0
+offset_bottom = 528.0
+text = "Start"
+
+[node name="btnQuit" type="Button" parent="GameOverContainer" unique_id=989643917]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 497.0
+offset_right = 457.0
+offset_bottom = 528.0
+text = "Quit"
+
 [connection signal="pressed" from="MenuContainer/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="MenuContainer/btnControls" to="." method="_on_btn_controls_pressed"]
 [connection signal="pressed" from="MenuContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
 [connection signal="value_changed" from="MenuContainer/sliderVolume" to="." method="_on_slider_volume_value_changed"]
 [connection signal="pressed" from="ControlsContainer/btnCloseControls" to="." method="_on_btn_close_controls_pressed"]
+[connection signal="pressed" from="GameOverContainer/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="GameOverContainer/btnQuit" to="." method="_on_btn_quit_pressed"]

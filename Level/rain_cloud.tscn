@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://k5wu4exh3wxa"]
 
-[ext_resource type="Texture2D" uid="uid://cs6i3r6sih60o" path="res://Assets/Cloud.png" id="1_5r6ga"]
-[ext_resource type="Shader" uid="uid://o1u2en7w5brb" path="res://Level/rain_cloud.gdshader" id="1_g4jnf"]
+[ext_resource type="Texture2D" uid="uid://dcxibno7r8pm4" path="res://Assets/Rain Cloud.png" id="1_5r6ga"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4jnf"]
-shader = ExtResource("1_g4jnf")
-shader_parameter/grey_amount = 0.5
-shader_parameter/darken_amount = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjxej"]
-size = Vector2(654, 143)
+size = Vector2(301, 197)
 
 [sub_resource type="Animation" id="Animation_g4jnf"]
 resource_name = "Pulse"
@@ -24,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.4, 0.4), Vector2(0.41, 0.41), Vector2(0.4, 0.4)]
+"values": [Vector2(1, 1), Vector2(1.01, 1.01), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_h74bu"]
@@ -59,7 +55,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_5r6ga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1278856254]
-position = Vector2(-14, 89.5)
+position = Vector2(-2.5, 20.5)
 shape = SubResource("RectangleShape2D_kjxej")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=610545394]

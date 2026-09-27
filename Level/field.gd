@@ -18,12 +18,12 @@ var _fully_watered := false
 var timer = Timer.new()
 var timer_free = Timer.new()
 
-
+var _old_rain_state : bool = false
 
 func spawn_plant(plant_offset):
 	var plant : Node2D = plant_template.instantiate()
 	add_child(plant)
-	plant.position = Vector2(plant_offset + randf() * 100, 0)
+	plant.position = Vector2(plant_offset + randf() * 200, 0)
 	return plant.position.x
 
 func spawn_flower(plant_offset):
@@ -75,6 +75,7 @@ func _on_timer_fade_timeout():
 	update_fade_status()
 	if water_level <= 0.0:
 		timer.stop()
+		timer_free.start()
 		for n in get_children():
 			if n.is_in_group("plant") or n.is_in_group("flower"):
 				n.dry_out()
@@ -100,6 +101,7 @@ func add_water(delta: float):
 		if not _fully_watered:
 			Global.field_fully_watered.emit(global_position.x)
 			_fully_watered = true
+			timer.stop()
 			for n in get_children():
 				if n.is_in_group("plant"):
 					n.fully_watered()
@@ -107,8 +109,7 @@ func add_water(delta: float):
 					n.visible = true
 	else:
 		_fully_watered = false
-	
-	timer.start()
+		timer.start()
 
 func _process(delta: float) -> void:
 	var players = get_tree().get_nodes_in_group("player")
@@ -123,5 +124,16 @@ func _process(delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	if result:
 		if result.collider.name == "Cloud":
-			if result.collider.raining():
+			var is_raining = result.collider.raining()
+			if _old_rain_state != is_raining:
+				if is_raining:
+					Global.fade_in_or_out($AudioStreamPlayer2D, 0.5)
+				else:
+					Global.fade_in_or_out($AudioStreamPlayer2D, 0.5, 0.0, -80.0)
+				_old_rain_state = is_raining
+			if is_raining:
 				add_water(delta)
+	else:
+		if _old_rain_state:
+			Global.fade_in_or_out($AudioStreamPlayer2D, 0.5, 0.0, -80.0)
+			_old_rain_state = false

@@ -40,7 +40,7 @@ func spawn_trees(tree_offset):
 		tree_offset = tree_offset + randf() * 1750
 		var tree: Node2D = tree_template.instantiate()
 		add_child(tree)
-		tree.position = Vector2(tree_offset, $MarkerGround.position.y - 75)
+		tree.position = Vector2(tree_offset, $MarkerGround.position.y - 150)
 		tree.z_index = -1
 		_spawned_nodes.append(tree)
 
@@ -48,7 +48,7 @@ func spawn_hill(hill_offset):
 	if true: #if randf() <= 0.4:
 		var hill: Node2D = hill_templates.pick_random().instantiate()
 		add_child(hill)
-		hill.position = Vector2(hill_offset, $MarkerGround.position.y)
+		hill.position = Vector2(hill_offset, $MarkerGround.position.y - 150)
 		hill.z_index = -1
 		_spawned_nodes.append(hill)
 
@@ -74,6 +74,7 @@ func _ready():
 	Global.field_lost.connect(generate_new_field)
 
 func generate_new_field(offset: int):
+	print("Generating new field at offset: ", offset)
 	spawn_trees(offset + Global.VIEW_WIDTH)
 	spawn_field(offset + Global.VIEW_WIDTH)
 	spawn_clouds(offset + Global.VIEW_WIDTH)

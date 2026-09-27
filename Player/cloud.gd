@@ -9,6 +9,7 @@ var _weather_velocity := 0.0
 const WATER_LEVEL_MAX = 3.0
 var water_level = 0.25
 var _material: ShaderMaterial
+var _old_emitting_state : bool = false
 
 @onready var _rain: GPUParticles2D = $GPUParticles2D
 
@@ -81,7 +82,21 @@ func apply_wind(direction: float, force: float) -> void:
 ## speed regardless of what's resting on it.
 func apply_weather(vertical_direction: float, speed: float) -> void:
 	_weather_velocity = vertical_direction * speed
+	_old_emitting_state = _rain.emitting
 	_rain.emitting = vertical_direction < 0.0 and water_level > 0.0
+	if _rain.emitting != _old_emitting_state:
+		if _rain.emitting:
+			for audio_stream_player in [
+				$AudioStreamPlayer2D,
+				$AudioStreamPlayer2D2
+				]:
+					Global.fade_in_or_out(audio_stream_player, 0.5)
+		else:
+			for audio_stream_player in [
+				$AudioStreamPlayer2D,
+				$AudioStreamPlayer2D2
+				]:
+					Global.fade_in_or_out(audio_stream_player, 0.5, 0.0, -80.0)
 
 func fill_water():
 	water_level += randf()

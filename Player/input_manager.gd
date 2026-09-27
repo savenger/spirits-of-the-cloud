@@ -2,6 +2,7 @@ class_name InputManager
 extends Node
 
 signal player_joined(player_id: int, player_input: PlayerInput)
+signal player_removed(player_id: int)
 
 const MAX_PLAYERS := 2
 
@@ -149,7 +150,7 @@ func get_player_input(player_id: int) -> PlayerInput:
 
 func remove_player(player_id: int) -> void:
 	player_inputs.erase(player_id)
-
+	player_removed.emit(player_id)
 
 func has_player(player_id: int) -> bool:
 	return player_inputs.has(player_id)
