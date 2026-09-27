@@ -53,7 +53,7 @@ func resolve() -> float:
 	elif _value <= -(1.0 - 2.0 * target_zone_fraction):
 		duration = -4.0 - 5.0 * (_value * _value)
 	
-	#print("_value: ", _value, ", direction: ", direction)
+	print("WEATHER: _value: ", _value, ", duration: ", duration)
 
 	Global.weather_influenced.emit(duration)
 	queue_free()

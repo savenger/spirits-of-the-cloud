@@ -19,6 +19,8 @@ func _ready() -> void:
 	Global.weather_influenced.connect(weather_influenced)
 
 func weather_influenced(duration: float) -> void:
+	if duration == 0.0:
+		return
 	phase_duration = abs(duration)
 	_phase_time = 0.0
 	_state = State.COOLING if duration > 0.0 else State.WARMING

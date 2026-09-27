@@ -29,6 +29,8 @@ func spawn_clouds(cloud_offset):
 func spawn_field(field_offset):
 	var field : Node2D = field_template.instantiate()
 	add_child(field)
+	if field_offset > 0:
+		field.water_level = 4.0
 	field.position = Vector2(field_offset + randf() * 100, $MarkerGround.position.y)
 	_spawned_nodes.append(field)
 	return field.position.x

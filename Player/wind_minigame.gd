@@ -56,7 +56,7 @@ func resolve() -> float:
 	elif _value <= -(1.0 - 2.0 * target_zone_fraction):
 		direction = - (_value * _value)
 	
-	#print("_value: ", _value, ", direction: ", direction)
+	print("WIND: _value: ", _value, ", direction: ", direction)
 
 	resolved.emit(direction)
 	queue_free()
