@@ -5,6 +5,7 @@ signal field_lost(offset: int)
 
 signal weather_influenced(duration: float)
 
+signal pause(paused: bool)
 signal game_over()
 
 var fields_saved = 0

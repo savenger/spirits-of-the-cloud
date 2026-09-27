@@ -71,6 +71,9 @@ func _ready():
 	add_child(timer_free)
 
 func _on_timer_fade_timeout():
+	var players = get_tree().get_nodes_in_group("player")
+	if not players[0].is_physics_processing():
+		return
 	water_level -= 0.1
 	update_fade_status()
 	if water_level <= 0.0:
@@ -113,6 +116,8 @@ func add_water(delta: float):
 
 func _process(delta: float) -> void:
 	var players = get_tree().get_nodes_in_group("player")
+	if not players[0].is_physics_processing():
+		return
 	var excludes = []
 	for p in players:
 		excludes.append(p.get_rid())

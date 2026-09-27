@@ -1,6 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://cgavtb7nex7dp"]
 
 [ext_resource type="Texture2D" uid="uid://bo6si10mlwo18" path="res://Assets/Cloud_Button.png" id="1_e7bfs"]
+[ext_resource type="Texture2D" uid="uid://dwe2w523nvwai" path="res://Assets/Flower bud_volume.png" id="2_7j863"]
+[ext_resource type="Texture2D" uid="uid://bpimhdppjgx83" path="res://Assets/Volume bar.png" id="3_50bnw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e7bfs"]
 texture = ExtResource("1_e7bfs")
@@ -17,6 +19,9 @@ texture = ExtResource("1_e7bfs")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50bnw"]
 texture = ExtResource("1_e7bfs")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u2qpq"]
+texture = ExtResource("3_50bnw")
+
 [resource]
 Button/colors/font_color = Color(0, 0.15294118, 0.39607844, 1)
 Button/colors/font_hover_color = Color(0, 0.40392157, 0.6156863, 1)
@@ -27,4 +32,7 @@ Button/styles/hover_pressed = SubResource("StyleBoxTexture_7j863")
 Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_3taad")
 Button/styles/normal = SubResource("StyleBoxTexture_bp0wp")
 Button/styles/pressed = SubResource("StyleBoxTexture_50bnw")
+HSlider/icons/grabber = ExtResource("2_7j863")
+HSlider/icons/grabber_highlight = ExtResource("2_7j863")
+HSlider/styles/slider = SubResource("StyleBoxTexture_u2qpq")
 Label/colors/font_color = Color(0, 0.15294118, 0.39607844, 1)

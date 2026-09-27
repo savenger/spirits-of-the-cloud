@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btjj8q66ba38q" path="res://Assets/Splash screen menu.png" id="2_c6gbj"]
 [ext_resource type="Texture2D" uid="uid://4ogd1am32iys" path="res://icon.svg" id="2_n03x5"]
 [ext_resource type="Theme" uid="uid://cgavtb7nex7dp" path="res://default_theme.tres" id="3_m0p0e"]
+[ext_resource type="Texture2D" uid="uid://bpimhdppjgx83" path="res://Assets/Volume bar.png" id="4_xtlvs"]
 
 [node name="Mainmenu" type="Control" unique_id=216117690]
 process_mode = 3
@@ -26,46 +27,61 @@ texture = ExtResource("2_c6gbj")
 
 [node name="btnStart" type="Button" parent="MenuContainer" unique_id=408462333]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 497.0
-offset_right = 301.0
-offset_bottom = 528.0
+offset_left = 85.0
+offset_top = 225.0
+offset_right = 235.0
+offset_bottom = 325.0
 theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
 text = "Start"
 
 [node name="btnControls" type="Button" parent="MenuContainer" unique_id=81503380]
 layout_mode = 0
-offset_left = 319.0
-offset_top = 497.0
-offset_right = 393.0
-offset_bottom = 528.0
+offset_left = 292.0
+offset_top = 225.0
+offset_right = 442.0
+offset_bottom = 325.0
 theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
 text = "Controls"
 
 [node name="btnQuit" type="Button" parent="MenuContainer" unique_id=732912980]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 497.0
-offset_right = 457.0
-offset_bottom = 528.0
+offset_left = 515.0
+offset_top = 225.0
+offset_right = 665.0
+offset_bottom = 325.0
 theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
 text = "Quit"
 
-[node name="lblVolume" type="Label" parent="MenuContainer" unique_id=1976357765]
+[node name="Control" type="Control" parent="MenuContainer" unique_id=1760454989]
+anchors_preset = 0
+offset_left = 742.0
+offset_top = 227.0
+offset_right = 1019.0
+offset_bottom = 324.0
+
+[node name="lblVolume" type="Label" parent="MenuContainer/Control" unique_id=1976357765]
 layout_mode = 0
-offset_left = 505.0
-offset_top = 497.0
-offset_right = 569.0
-offset_bottom = 520.0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = 68.0
+offset_bottom = 58.0
 theme = ExtResource("3_m0p0e")
 text = "Volume:"
 
-[node name="sliderVolume" type="HSlider" parent="MenuContainer" unique_id=2055507024]
+[node name="Sprite2D2" type="Sprite2D" parent="MenuContainer/Control" unique_id=1339394506]
+position = Vector2(161, 47)
+texture = ExtResource("4_xtlvs")
+
+[node name="sliderVolume" type="HSlider" parent="MenuContainer/Control" unique_id=2055507024]
 layout_mode = 0
-offset_left = 583.0
-offset_top = 500.0
-offset_right = 774.0
-offset_bottom = 521.0
+offset_left = 54.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 72.0
+theme = ExtResource("3_m0p0e")
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -116,10 +132,74 @@ offset_bottom = 528.0
 theme = ExtResource("3_m0p0e")
 text = "Quit"
 
+[node name="PauseContainer" type="Control" parent="." unique_id=1411159139]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseContainer" unique_id=1039071436]
+position = Vector2(575.5, 325)
+texture = ExtResource("2_c6gbj")
+
+[node name="btnContinue" type="Button" parent="PauseContainer" unique_id=909906077]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 225.0
+offset_right = 235.0
+offset_bottom = 325.0
+theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
+text = "Continue"
+
+[node name="btnQuit" type="Button" parent="PauseContainer" unique_id=883457543]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 225.0
+offset_right = 665.0
+offset_bottom = 325.0
+theme = ExtResource("3_m0p0e")
+theme_override_font_sizes/font_size = 28
+text = "Quit"
+
+[node name="Control" type="Control" parent="PauseContainer" unique_id=149366911]
+anchors_preset = 0
+offset_left = 742.0
+offset_top = 227.0
+offset_right = 1019.0
+offset_bottom = 324.0
+
+[node name="lblVolume" type="Label" parent="PauseContainer/Control" unique_id=1134416604]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = 68.0
+offset_bottom = 58.0
+theme = ExtResource("3_m0p0e")
+text = "Volume:"
+
+[node name="Sprite2D2" type="Sprite2D" parent="PauseContainer/Control" unique_id=243471768]
+position = Vector2(161, 47)
+texture = ExtResource("4_xtlvs")
+
+[node name="sliderVolume" type="HSlider" parent="PauseContainer/Control" unique_id=230126690]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 72.0
+theme = ExtResource("3_m0p0e")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
 [connection signal="pressed" from="MenuContainer/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="MenuContainer/btnControls" to="." method="_on_btn_controls_pressed"]
 [connection signal="pressed" from="MenuContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
-[connection signal="value_changed" from="MenuContainer/sliderVolume" to="." method="_on_slider_volume_value_changed"]
+[connection signal="value_changed" from="MenuContainer/Control/sliderVolume" to="." method="_on_slider_volume_value_changed"]
 [connection signal="pressed" from="ControlsContainer/btnCloseControls" to="." method="_on_btn_close_controls_pressed"]
-[connection signal="pressed" from="GameOverContainer/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="GameOverContainer/btnStart" to="." method="_on_btn_start_over_pressed"]
 [connection signal="pressed" from="GameOverContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="PauseContainer/btnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="PauseContainer/btnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="value_changed" from="PauseContainer/Control/sliderVolume" to="." method="_on_slider_volume_value_changed"]

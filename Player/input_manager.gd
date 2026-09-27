@@ -123,7 +123,9 @@ func process_event(
 	if event.is_action_released("move_right"):
 		if player_input.move_direction > 0.0:
 			player_input.move_direction = 0.0
-
+	
+	if event.is_action_pressed("pause"):
+		get_tree().paused != get_tree().paused
 
 func find_free_player_id() -> int:
 	for player_id in range(1, MAX_PLAYERS + 1):

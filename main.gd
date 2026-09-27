@@ -23,6 +23,14 @@ func _ready() -> void:
 	input_manager.player_joined.connect(_on_player_joined)
 	input_manager.player_removed.connect(_on_player_removed)
 	$Mainmenu.game_start.connect(start_game)
+	Global.pause.connect(handle_pause)
+	Global.game_over.connect(handle_game_over)
+
+func handle_pause(paused: bool):
+	$Mainmenu.visible = paused
+
+func handle_game_over():
+	$Mainmenu.visible = true
 
 func start_game():
 	Global.reset()
