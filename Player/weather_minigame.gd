@@ -31,6 +31,8 @@ func _ready() -> void:
 	_value = sin(_time * TAU / oscillation_period)
 
 	_update_marker()
+	
+	Global.game_over.connect(cancel)
 
 
 func _process(delta: float) -> void:

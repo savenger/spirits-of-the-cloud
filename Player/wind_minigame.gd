@@ -19,7 +19,6 @@ var _value := 0.0 # -1.0 (all the way left) .. 1.0 (all the way right)
 @onready var _left_zone: ColorRect = $Root/LeftZone
 @onready var _right_zone: ColorRect = $Root/RightZone
 
-
 func _ready() -> void:
 	var zone_width := track_width * target_zone_fraction
 
@@ -34,6 +33,8 @@ func _ready() -> void:
 	_value = sin(_time * TAU / oscillation_period)
 
 	_update_marker()
+	
+	Global.game_over.connect(cancel)
 
 
 func _process(delta: float) -> void:

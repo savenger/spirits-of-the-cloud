@@ -13,22 +13,18 @@ var _old_emitting_state : bool = false
 
 @onready var _rain: GPUParticles2D = $GPUParticles2D
 
-var plant_shader = preload("res://Player/cloud.gdshader")
-
 @export var tint_strength := 1.0:
 	set(value):
 		tint_strength = value
 		if _material:
-			_material.set_shader_parameter("tint_strength", tint_strength)
+			_material.set_shader_parameter("transition", tint_strength)
 
 func raining() -> bool:
 	return _rain.emitting
 
 func _ready():
-	_material = ShaderMaterial.new()
-	_material.shader = plant_shader
-	_material.set_shader_parameter("tint_strength", tint_strength)
-	$Sprite2D.material = _material
+	_material = $Sprite2D.material
+	_material.set_shader_parameter("transition", tint_strength)
 	add_to_group("cloud")
 
 
@@ -70,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	if _rain.emitting:
 		water_level -= 0.003
 	
-	tint_strength = water_level
+	tint_strength = clamp(water_level / WATER_LEVEL_MAX, 0.0, 1.0)
 
 ## direction is -1 (left) or 1 (right). Adds an instant kick that decays over time.
 func apply_wind(direction: float, force: float) -> void:

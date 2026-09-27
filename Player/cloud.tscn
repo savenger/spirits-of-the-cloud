@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://cs6i3r6sih60o" path="res://Assets/Cloud.png" id="2_7pclq"]
 [ext_resource type="Shader" uid="uid://b0l6ae2iwya6t" path="res://Player/cloud.gdshader" id="2_jirfo"]
 [ext_resource type="Texture2D" uid="uid://cefjhwynw1n74" path="res://Assets/Drop.png" id="3_jirfo"]
+[ext_resource type="Texture2D" uid="uid://c4rnte6e2v6df" path="res://Assets/Cloud_Dark.png" id="4_wcbi4"]
 [ext_resource type="AudioStream" uid="uid://cm7w6q0oms8m0" path="res://Assets/cloud_rain_long.mp3" id="5_rxs4q"]
 [ext_resource type="AudioStream" uid="uid://coy158pf1dgfw" path="res://Assets/cloud_rain_short.mp3" id="6_u2qpq"]
 [ext_resource type="AudioStream" uid="uid://ckk361ltm46ys" path="res://Assets/cloud_moving.mp3" id="7_u2qpq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
 shader = ExtResource("2_jirfo")
-shader_parameter/tint_strength = 1.0
-shader_parameter/tint_color = Color(0.5, 0.55, 0.65, 1)
+shader_parameter/dark_texture = ExtResource("4_wcbi4")
+shader_parameter/transition = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uawph"]
 size = Vector2(782, 113.5)
@@ -30,6 +31,7 @@ color = Color(0.75, 0.85, 1, 0.75)
 
 [node name="Cloud" type="AnimatableBody2D" unique_id=665632278]
 collision_layer = 3
+collision_mask = 0
 sync_to_physics = false
 script = ExtResource("1_12sru")
 
